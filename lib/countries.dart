@@ -6668,7 +6668,8 @@ const List<Country> countries = [
     maxLength: 9,
   ),
   Country(
-    name: "Tanzania, United Republic of Tanzania",
+    // name: "Tanzania, United Republic of Tanzania",
+    name: "Tanzania",
     nameTranslations: {
       "sk": "Tanzánia",
       "se": "Tanzánia",
