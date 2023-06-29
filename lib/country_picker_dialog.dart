@@ -145,7 +145,8 @@ class _CountryPickerDialogState extends State<CountryPickerDialog> {
                         Navigator.of(context).pop();
                       },
                     ),
-                    widget.style?.listTileDivider ?? const Divider(thickness: 1),
+                    // removed divider
+                    // widget.style?.listTileDivider ?? const Divider(thickness: 1),
                   ],
                 ),
               ),
