@@ -101,7 +101,8 @@ class _CountryPickerDialogState extends State<CountryPickerDialog> {
                 decoration: widget.style?.searchFieldInputDecoration ??
                     InputDecoration(
                       suffixIcon: const Icon(Icons.search),
-                      labelText: widget.searchText,
+                      // labelText: widget.searchText,
+                      hintText: widget.searchText,
                     ),
                 onChanged: (value) {
                   _filteredCountries = widget.countryList.stringSearch(value)
@@ -112,7 +113,7 @@ class _CountryPickerDialogState extends State<CountryPickerDialog> {
                 },
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 5),
             Expanded(
               child: ListView.builder(
                 shrinkWrap: true,
