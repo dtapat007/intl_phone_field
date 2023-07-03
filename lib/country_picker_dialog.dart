@@ -98,54 +98,136 @@ class _CountryPickerDialogState extends State<CountryPickerDialog> {
         padding: widget.style?.padding ?? const EdgeInsets.all(10),
         child: Column(
           children: <Widget>[
-            Padding(
-              padding: widget.style?.searchFieldPadding ?? const EdgeInsets.all(0),
-              child: TextField(
-                cursorColor: widget.style?.searchFieldCursorColor,
-                decoration: widget.style?.searchFieldInputDecoration ??
-                    InputDecoration(
-                      // suffixIcon: Image.asset('assets/search.png'),
-                      suffixIcon: Image.asset('assets/images/icon-search.png'),
-                      // suffixIcon: const Icon(Icons.search),
-                      // suffixIcon: Image.asset('assets/search.png'),
-                      // labelText: widget.searchText,
-                      hintText: widget.searchText,
-                    ),
-                onChanged: (value) {
-                  _filteredCountries = widget.countryList.stringSearch(value)
-                    ..sort(
-                      (a, b) => a.localizedName(widget.languageCode).compareTo(b.localizedName(widget.languageCode)),
-                    );
-                  if (mounted) setState(() {});
-                },
-              ),
-            ),
-            const SizedBox(height: 5),
+            ///search field
+            // Padding(
+            //   padding: widget.style?.searchFieldPadding ?? const EdgeInsets.all(0),
+            //   child: TextField(
+            //     cursorColor: widget.style?.searchFieldCursorColor,
+            //     decoration: widget.style?.searchFieldInputDecoration ??
+            //         InputDecoration(
+            //           suffixIcon: IconButton(
+            //             onPressed: () {
+            //               // Handle suffix icon button press
+            //             },
+            //             icon: Image.asset(
+            //               'assets/test/search.png',
+            //               // width: 20, // Adjust the width as per your requirement
+            //               // height: 20, // Adjust the height as per your requirement
+            //             ),
+            //           ),
+            //           // suffixIcon: const Icon(Icons.search),
+            //           // labelText: widget.searchText,
+            //           hintText: widget.searchText,
+            //         ),
+            //     onChanged: (value) {
+            //       _filteredCountries = widget.countryList.stringSearch(value)
+            //         ..sort(
+            //           (a, b) => a.localizedName(widget.languageCode).compareTo(b.localizedName(widget.languageCode)),
+            //         );
+            //       if (mounted) setState(() {});
+            //     },
+            //   ),
+            // ),
+            // const SizedBox(height: 5),
             Expanded(
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: _filteredCountries.length,
                 itemBuilder: (ctx, index) => Column(
                   children: <Widget>[
+                    // ListTile(
+                    //   leading: kIsWeb
+                    //       ? Image.asset(
+                    //           'assets/flags/${_filteredCountries[index].code.toLowerCase()}.png',
+                    //           package: 'intl_phone_field',
+                    //           width: 32,
+                    //         )
+                    //       : Text(
+                    //           _filteredCountries[index].flag,
+                    //           style: const TextStyle(fontSize: 18),
+                    //         ),
+                    //   contentPadding: widget.style?.listTilePadding,
+                    //   title: RichText(
+                    //     text: TextSpan(
+                    //       style: DefaultTextStyle.of(context).style,
+                    //       children: [
+                    //         TextSpan(
+                    //           text: '${_filteredCountries[index].localizedName(widget.languageCode)} ',
+                    //           style: const TextStyle(
+                    //             fontWeight: FontWeight.w400,
+                    //             fontSize: 14,
+                    //             fontFamily: 'Futura LT Pro Book',
+                    //           ),
+                    //         ),
+                    //         TextSpan(
+                    //           text: '  +${_filteredCountries[index].dialCode}',
+                    //           style: const TextStyle(
+                    //             fontWeight: FontWeight.w300,
+                    //             fontSize: 13,
+                    //             color: Color(0xFF999999),
+                    //             fontFamily: 'Futura LT Pro Book',
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //   ),
+                    //   //
+                    //   // title: Text(
+                    //   //   '${_filteredCountries[index].localizedName(widget.languageCode)}  +${_filteredCountries[index].dialCode}',
+                    //   //   style: widget.style?.countryNameStyle ?? const TextStyle(fontWeight: FontWeight.w400, fontFamily: 'Futura LT Pro Book,Helvetica',),
+                    //   // ),
+                    //   // trailing: Text(
+                    //   //   '+${_filteredCountries[index].dialCode}',
+                    //   //   style: widget.style?.countryCodeStyle ?? const TextStyle(fontWeight: FontWeight.w400, fontFamily: 'Futura LT Pro Book,Helvetica',),
+                    //   // ),
+                    //   onTap: () {
+                    //     _selectedCountry = _filteredCountries[index];
+                    //     widget.onCountryChanged(_selectedCountry);
+                    //     Navigator.of(context).pop();
+                    //   },
+                    // ),
+                    // removed divider
+                    // widget.style?.listTileDivider ?? const Divider(thickness: 1),
                     ListTile(
-                      leading: kIsWeb
-                          ? Image.asset(
-                              'assets/flags/${_filteredCountries[index].code.toLowerCase()}.png',
-                              package: 'intl_phone_field',
-                              width: 32,
-                            )
-                          : Text(
-                              _filteredCountries[index].flag,
-                              style: const TextStyle(fontSize: 18),
-                            ),
                       contentPadding: widget.style?.listTilePadding,
-                      title: Text(
-                        _filteredCountries[index].localizedName(widget.languageCode),
-                        style: widget.style?.countryNameStyle ?? const TextStyle(fontWeight: FontWeight.w700),
-                      ),
-                      trailing: Text(
-                        '+${_filteredCountries[index].dialCode}',
-                        style: widget.style?.countryCodeStyle ?? const TextStyle(fontWeight: FontWeight.w700),
+                      title: RichText(
+                        text: TextSpan(
+                          style: DefaultTextStyle.of(context).style,
+                          children: [
+                            WidgetSpan(
+                              child: kIsWeb
+                                  ? Image.asset(
+                                'assets/flags/${_filteredCountries[index].code.toLowerCase()}.png',
+                                package: 'intl_phone_field',
+                                width: 32,
+                              )
+                                  : Text(
+                                _filteredCountries[index].flag,
+                                style: const TextStyle(fontSize: 18),
+                              ),
+                            ),
+                            const TextSpan(
+                              text: ' ', // Add a space between the leading and the title
+                            ),
+                            TextSpan(
+                              text: ' ${_filteredCountries[index].localizedName(widget.languageCode)} ',
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14,
+                                fontFamily: 'Futura LT Pro Book',
+                              ),
+                            ),
+                            TextSpan(
+                              text: ' +${_filteredCountries[index].dialCode}',
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w300,
+                                fontSize: 13,
+                                color: Color(0xFF999999),
+                                fontFamily: 'Futura LT Pro Book',
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       onTap: () {
                         _selectedCountry = _filteredCountries[index];
@@ -153,8 +235,7 @@ class _CountryPickerDialogState extends State<CountryPickerDialog> {
                         Navigator.of(context).pop();
                       },
                     ),
-                    // removed divider
-                    // widget.style?.listTileDivider ?? const Divider(thickness: 1),
+
                   ],
                 ),
               ),
