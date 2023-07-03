@@ -80,15 +80,19 @@ class _CountryPickerDialogState extends State<CountryPickerDialog> {
   @override
   Widget build(BuildContext context) {
     final mediaWidth = MediaQuery.of(context).size.width;
+    // final width = widget.style?.width ?? mediaWidth;
     final width = widget.style?.width ?? mediaWidth;
     const defaultHorizontalPadding = 40.0;
     const defaultVerticalPadding = 24.0;
     return Dialog(
-      insetPadding: EdgeInsets.symmetric(
+
+      insetPadding: const EdgeInsets.symmetric(
           vertical: defaultVerticalPadding,
-          horizontal: mediaWidth > (width + defaultHorizontalPadding * 2)
-              ? (mediaWidth - width) / 2
-              : defaultHorizontalPadding),
+          horizontal: 16,),
+          // horizontal: mediaWidth > (width + defaultHorizontalPadding * 2)
+          //     ? (mediaWidth - width) / 2
+          //     : defaultHorizontalPadding),
+
       backgroundColor: widget.style?.backgroundColor,
       child: Container(
         padding: widget.style?.padding ?? const EdgeInsets.all(10),
@@ -100,7 +104,8 @@ class _CountryPickerDialogState extends State<CountryPickerDialog> {
                 cursorColor: widget.style?.searchFieldCursorColor,
                 decoration: widget.style?.searchFieldInputDecoration ??
                     InputDecoration(
-                      suffixIcon: const Icon(Icons.search),
+                      // suffixIcon: Image.asset('assets/search.png'),
+                      suffixIcon: Image.asset('assets/search.png'),
                       // labelText: widget.searchText,
                       hintText: widget.searchText,
                     ),
