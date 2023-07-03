@@ -105,7 +105,8 @@ class _CountryPickerDialogState extends State<CountryPickerDialog> {
                 decoration: widget.style?.searchFieldInputDecoration ??
                     InputDecoration(
                       // suffixIcon: Image.asset('assets/search.png'),
-                      suffixIcon: const Icon(Icons.search),
+                      suffixIcon: Image.asset('assets/images/icon-search.png'),
+                      // suffixIcon: const Icon(Icons.search),
                       // suffixIcon: Image.asset('assets/search.png'),
                       // labelText: widget.searchText,
                       hintText: widget.searchText,
