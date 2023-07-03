@@ -129,117 +129,170 @@ class _CountryPickerDialogState extends State<CountryPickerDialog> {
             //   ),
             // ),
             // const SizedBox(height: 5),
+            // Expanded(
+            //   child: ListView.builder(
+            //     shrinkWrap: true,
+            //     itemCount: _filteredCountries.length,
+            //     itemBuilder: (ctx, index) => Column(
+            //       children: <Widget>[
+            //         // ListTile(
+            //         //   leading: kIsWeb
+            //         //       ? Image.asset(
+            //         //           'assets/flags/${_filteredCountries[index].code.toLowerCase()}.png',
+            //         //           package: 'intl_phone_field',
+            //         //           width: 32,
+            //         //         )
+            //         //       : Text(
+            //         //           _filteredCountries[index].flag,
+            //         //           style: const TextStyle(fontSize: 18),
+            //         //         ),
+            //         //   contentPadding: widget.style?.listTilePadding,
+            //         //   title: RichText(
+            //         //     text: TextSpan(
+            //         //       style: DefaultTextStyle.of(context).style,
+            //         //       children: [
+            //         //         TextSpan(
+            //         //           text: '${_filteredCountries[index].localizedName(widget.languageCode)} ',
+            //         //           style: const TextStyle(
+            //         //             fontWeight: FontWeight.w400,
+            //         //             fontSize: 14,
+            //         //             fontFamily: 'Futura LT Pro Book',
+            //         //           ),
+            //         //         ),
+            //         //         TextSpan(
+            //         //           text: '  +${_filteredCountries[index].dialCode}',
+            //         //           style: const TextStyle(
+            //         //             fontWeight: FontWeight.w300,
+            //         //             fontSize: 13,
+            //         //             color: Color(0xFF999999),
+            //         //             fontFamily: 'Futura LT Pro Book',
+            //         //           ),
+            //         //         ),
+            //         //       ],
+            //         //     ),
+            //         //   ),
+            //         //   //
+            //         //   // title: Text(
+            //         //   //   '${_filteredCountries[index].localizedName(widget.languageCode)}  +${_filteredCountries[index].dialCode}',
+            //         //   //   style: widget.style?.countryNameStyle ?? const TextStyle(fontWeight: FontWeight.w400, fontFamily: 'Futura LT Pro Book,Helvetica',),
+            //         //   // ),
+            //         //   // trailing: Text(
+            //         //   //   '+${_filteredCountries[index].dialCode}',
+            //         //   //   style: widget.style?.countryCodeStyle ?? const TextStyle(fontWeight: FontWeight.w400, fontFamily: 'Futura LT Pro Book,Helvetica',),
+            //         //   // ),
+            //         //   onTap: () {
+            //         //     _selectedCountry = _filteredCountries[index];
+            //         //     widget.onCountryChanged(_selectedCountry);
+            //         //     Navigator.of(context).pop();
+            //         //   },
+            //         // ),
+            //         // removed divider
+            //         // widget.style?.listTileDivider ?? const Divider(thickness: 1),
+            //         ListTile(
+            //           contentPadding: const EdgeInsets.only(left: 10.0),
+            //           title: RichText(
+            //             text: TextSpan(
+            //               style: DefaultTextStyle.of(context).style,
+            //               children: [
+            //                 WidgetSpan(
+            //                   child: kIsWeb
+            //                       ? Image.asset(
+            //                     'assets/flags/${_filteredCountries[index].code.toLowerCase()}.png',
+            //                     package: 'intl_phone_field',
+            //                     width: 32,
+            //                   )
+            //                       : Text(
+            //                     _filteredCountries[index].flag,
+            //                     style: const TextStyle(fontSize: 18),
+            //                   ),
+            //                 ),
+            //                 TextSpan(
+            //                   text: ' ${_filteredCountries[index].localizedName(widget.languageCode)} ',
+            //                   style: const TextStyle(
+            //                     fontWeight: FontWeight.w400,
+            //                     fontSize: 14,
+            //                     fontFamily: 'Futura LT Pro Book',
+            //                   ),
+            //                 ),
+            //                 TextSpan(
+            //                   text: ' +${_filteredCountries[index].dialCode}',
+            //                   style: const TextStyle(
+            //                     fontWeight: FontWeight.w300,
+            //                     fontSize: 13,
+            //                     color: Color(0xFF999999),
+            //                     fontFamily: 'Futura LT Pro Book',
+            //                   ),
+            //                 ),
+            //               ],
+            //             ),
+            //           ),
+            //           onTap: () {
+            //             _selectedCountry = _filteredCountries[index];
+            //             widget.onCountryChanged(_selectedCountry);
+            //             Navigator.of(context).pop();
+            //           },
+            //         ),
+            //
+            //       ],
+            //     ),
+            //   ),
+            // ),
             Expanded(
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: _filteredCountries.length,
                 itemBuilder: (ctx, index) => Column(
                   children: <Widget>[
-                    // ListTile(
-                    //   leading: kIsWeb
-                    //       ? Image.asset(
-                    //           'assets/flags/${_filteredCountries[index].code.toLowerCase()}.png',
-                    //           package: 'intl_phone_field',
-                    //           width: 32,
-                    //         )
-                    //       : Text(
-                    //           _filteredCountries[index].flag,
-                    //           style: const TextStyle(fontSize: 18),
-                    //         ),
-                    //   contentPadding: widget.style?.listTilePadding,
-                    //   title: RichText(
-                    //     text: TextSpan(
-                    //       style: DefaultTextStyle.of(context).style,
-                    //       children: [
-                    //         TextSpan(
-                    //           text: '${_filteredCountries[index].localizedName(widget.languageCode)} ',
-                    //           style: const TextStyle(
-                    //             fontWeight: FontWeight.w400,
-                    //             fontSize: 14,
-                    //             fontFamily: 'Futura LT Pro Book',
-                    //           ),
-                    //         ),
-                    //         TextSpan(
-                    //           text: '  +${_filteredCountries[index].dialCode}',
-                    //           style: const TextStyle(
-                    //             fontWeight: FontWeight.w300,
-                    //             fontSize: 13,
-                    //             color: Color(0xFF999999),
-                    //             fontFamily: 'Futura LT Pro Book',
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //   ),
-                    //   //
-                    //   // title: Text(
-                    //   //   '${_filteredCountries[index].localizedName(widget.languageCode)}  +${_filteredCountries[index].dialCode}',
-                    //   //   style: widget.style?.countryNameStyle ?? const TextStyle(fontWeight: FontWeight.w400, fontFamily: 'Futura LT Pro Book,Helvetica',),
-                    //   // ),
-                    //   // trailing: Text(
-                    //   //   '+${_filteredCountries[index].dialCode}',
-                    //   //   style: widget.style?.countryCodeStyle ?? const TextStyle(fontWeight: FontWeight.w400, fontFamily: 'Futura LT Pro Book,Helvetica',),
-                    //   // ),
-                    //   onTap: () {
-                    //     _selectedCountry = _filteredCountries[index];
-                    //     widget.onCountryChanged(_selectedCountry);
-                    //     Navigator.of(context).pop();
-                    //   },
-                    // ),
-                    // removed divider
-                    // widget.style?.listTileDivider ?? const Divider(thickness: 1),
-                    ListTile(
-                      contentPadding: widget.style?.listTilePadding,
-                      title: RichText(
-                        text: TextSpan(
-                          style: DefaultTextStyle.of(context).style,
-                          children: [
-                            WidgetSpan(
-                              child: kIsWeb
-                                  ? Image.asset(
-                                'assets/flags/${_filteredCountries[index].code.toLowerCase()}.png',
-                                package: 'intl_phone_field',
-                                width: 32,
-                              )
-                                  : Text(
-                                _filteredCountries[index].flag,
-                                style: const TextStyle(fontSize: 18),
-                              ),
+                    // Removed commented-out code
+                    Container(
+                      padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 10.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          _selectedCountry = _filteredCountries[index];
+                          widget.onCountryChanged(_selectedCountry);
+                          Navigator.of(context).pop();
+                        },
+                        child: Row(
+                          children: <Widget>[
+                            // Country Flag
+                            kIsWeb
+                                ? Image.asset(
+                              'assets/flags/${_filteredCountries[index].code.toLowerCase()}.png',
+                              package: 'intl_phone_field',
+                              width: 32,
+                            )
+                                : Text(
+                              _filteredCountries[index].flag,
+                              style: const TextStyle(fontSize: 18),
                             ),
-                            const TextSpan(
-                              text: ' ', // Add a space between the leading and the title
-                            ),
-                            TextSpan(
-                              text: ' ${_filteredCountries[index].localizedName(widget.languageCode)} ',
+                            // Country Name
+                            Text(
+                              ' ${_filteredCountries[index].localizedName(widget.languageCode)}',
                               style: const TextStyle(
                                 fontWeight: FontWeight.w400,
-                                fontSize: 14,
-                                fontFamily: 'Futura LT Pro Book',
+                                fontSize: 17,
+                                fontFamily: 'Futura LT Pro Book,Helvetica',
                               ),
                             ),
-                            TextSpan(
-                              text: ' +${_filteredCountries[index].dialCode}',
+                            // Dial Code
+                            Text(
+                              '  +${_filteredCountries[index].dialCode}',
                               style: const TextStyle(
                                 fontWeight: FontWeight.w300,
-                                fontSize: 13,
+                                fontSize: 16,
                                 color: Color(0xFF999999),
-                                fontFamily: 'Futura LT Pro Book',
+                                fontFamily: 'Futura LT Pro Book,Helvetica',
                               ),
                             ),
                           ],
                         ),
                       ),
-                      onTap: () {
-                        _selectedCountry = _filteredCountries[index];
-                        widget.onCountryChanged(_selectedCountry);
-                        Navigator.of(context).pop();
-                      },
                     ),
-
                   ],
                 ),
               ),
             ),
+
           ],
         ),
       ),
