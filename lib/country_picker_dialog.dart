@@ -71,7 +71,9 @@ class _CountryPickerDialogState extends State<CountryPickerDialog> {
     _selectedCountry = widget.selectedCountry;
     _filteredCountries = widget.filteredCountries.toList()
       ..sort(
-        (a, b) => a.localizedName(widget.languageCode).compareTo(b.localizedName(widget.languageCode)),
+        (a, b) => a
+            .localizedName(widget.languageCode)
+            .compareTo(b.localizedName(widget.languageCode)),
       );
 
     super.initState();
@@ -85,13 +87,13 @@ class _CountryPickerDialogState extends State<CountryPickerDialog> {
     const defaultHorizontalPadding = 40.0;
     const defaultVerticalPadding = 24.0;
     return Dialog(
-
       insetPadding: const EdgeInsets.symmetric(
-          vertical: defaultVerticalPadding,
-          horizontal: 16,),
-          // horizontal: mediaWidth > (width + defaultHorizontalPadding * 2)
-          //     ? (mediaWidth - width) / 2
-          //     : defaultHorizontalPadding),
+        vertical: defaultVerticalPadding,
+        horizontal: 16,
+      ),
+      // horizontal: mediaWidth > (width + defaultHorizontalPadding * 2)
+      //     ? (mediaWidth - width) / 2
+      //     : defaultHorizontalPadding),
 
       backgroundColor: widget.style?.backgroundColor,
       child: Container(
@@ -245,7 +247,8 @@ class _CountryPickerDialogState extends State<CountryPickerDialog> {
                   children: <Widget>[
                     // Removed commented-out code
                     Container(
-                      padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 10.0),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 7.0, horizontal: 10.0),
                       child: GestureDetector(
                         onTap: () {
                           _selectedCountry = _filteredCountries[index];
@@ -255,23 +258,40 @@ class _CountryPickerDialogState extends State<CountryPickerDialog> {
                         child: Row(
                           children: <Widget>[
                             // Country Flag
-                            kIsWeb
-                                ? Image.asset(
-                              'assets/flags/${_filteredCountries[index].code.toLowerCase()}.png',
-                              package: 'intl_phone_field',
-                              width: 32,
-                            )
-                                : Text(
-                              _filteredCountries[index].flag,
-                              style: const TextStyle(fontSize: 18),
+                            // kIsWeb
+                            // ?
+                            // Image.asset(
+                            //   'assets/flags/${_filteredCountries[index].code.toLowerCase()}.png',
+                            //   package: 'intl_phone_field',
+                            //   width: 23,
+                            // ),
+
+                            Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: const Color(0xFFEEEEEE),
+                                    width:
+                                        1.0), // You can adjust the border color and width
+                              ),
+                              child: Image.asset(
+                                'assets/flags/${_filteredCountries[index].code.toLowerCase()}.png',
+                                package: 'intl_phone_field',
+                                width: 23,
+                              ),
                             ),
+
+                            // :
+                            // Text(
+                            //   _filteredCountries[index].flag,
+                            //   style: const TextStyle(fontSize: 18),
+                            // ),
                             // Country Name
                             Text(
                               ' ${_filteredCountries[index].localizedName(widget.languageCode)}',
                               style: const TextStyle(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 17,
-                                fontFamily: 'Futura LT Pro Book,Helvetica',
+                                fontFamily: 'Futura LT Pro Book',
                               ),
                             ),
                             // Dial Code
@@ -281,7 +301,7 @@ class _CountryPickerDialogState extends State<CountryPickerDialog> {
                                 fontWeight: FontWeight.w300,
                                 fontSize: 16,
                                 color: Color(0xFF999999),
-                                fontFamily: 'Futura LT Pro Book,Helvetica',
+                                fontFamily: 'Futura LT Pro Book',
                               ),
                             ),
                           ],
@@ -292,7 +312,6 @@ class _CountryPickerDialogState extends State<CountryPickerDialog> {
                 ),
               ),
             ),
-
           ],
         ),
       ),
