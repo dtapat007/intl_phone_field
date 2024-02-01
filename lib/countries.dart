@@ -3316,7 +3316,7 @@ const List<Country> countries = [
     flag: "🇮🇹",
     code: "IT",
     dialCode: "39",
-    minLength: 10,
+    minLength: 9,
     maxLength: 10,
   ),
   Country(
@@ -4091,8 +4091,8 @@ const List<Country> countries = [
     flag: "🇲🇾",
     code: "MY",
     dialCode: "60",
-    minLength: 11,
-    maxLength: 11,
+    minLength: 9,
+    maxLength: 10,
   ),
   Country(
     name: "Maldives",
@@ -6602,8 +6602,8 @@ const List<Country> countries = [
     flag: "🇸🇾",
     code: "SY",
     dialCode: "963",
-    minLength: 10,
-    maxLength: 10,
+    minLength: 9,
+    maxLength: 9,
   ),
   Country(
     name: "Taiwan",
@@ -6668,8 +6668,7 @@ const List<Country> countries = [
     maxLength: 9,
   ),
   Country(
-    // name: "Tanzania, United Republic of Tanzania",
-    name: "Tanzania",
+    name: "Tanzania, United Republic of Tanzania",
     nameTranslations: {
       "sk": "Tanzánia",
       "se": "Tanzánia",
