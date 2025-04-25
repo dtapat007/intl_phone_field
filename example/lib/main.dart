@@ -65,8 +65,8 @@ class _MyAppState extends State<MyApp> {
                   onChanged: (phone) {
                     print(phone.completeNumber);
                   },
-                  onCountryChanged: (country) {
-                    print('Country changed to: ' + country.name);
+                  onCountryChanged: (phone) {
+                    print(phone.completeNumber);
                   },
                 ),
                 SizedBox(
